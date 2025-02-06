@@ -25,7 +25,7 @@
                             <!-- Event Title and Link -->
                             <h3><a href="{% url 'event_detail' event.slug %}">{{ event.title }}</a></h3>
                             <!-- Event Date and Location -->
-                            <p>{{ event.start_time|date:"F d, Y H:i" }} - {{ event.location }}</p>
+                           
                             <!-- Event Image (if available) -->
                             {% if event.image %}
                                 <img src="{{ event.image.url }}" alt="{{ event.title }}" class="event-image">

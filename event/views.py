@@ -44,7 +44,7 @@ def event_detail(request, event_slug):
     else:
         contact_form = ContactForm()
     return render(request, 'event_detail.html', {'event': event_instance, 'contact_form': contact_form})
-    
+'''    
 def contact_view(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
@@ -90,6 +90,39 @@ def contact_view(request):
         form = ContactForm()
 
     return render(request, "form.html", {"form": form})
+'''
+def contact_view(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact = form.save()  # Save form data to the database
+            
+            # Get the selected events
+            events_selected = ", ".join([event.title for event in contact.events.all()])
+            
+            # Send a thank-you email
+            subject = "Thank You for Registering"
+            message = f"""
+            Dear {contact.name},
 
+            Thank you for registering!
+
+            You have successfully registered for the following events:
+            {events_selected}
+
+            We look forward to seeing you.
+
+            Best Regards,
+            Event Team
+            """
+            from_email = "dattarishikesh2498@gmail.com"  # Update with your email
+            recipient_list = [contact.email]
+            send_mail(subject, message, from_email, recipient_list)
+            
+            messages.success(request, "Thank you for registering! A confirmation email has been sent.")
+            return redirect("thank_you")  # Redirect to a success page
+    else:
+        form = ContactForm()
+    
 def thank_you(request):
     return render(request, 'tq.html')
