@@ -21,7 +21,7 @@
         {% endif %}
 
         <h3>Description:</h3>
-        <p>{{ event.description }}</p>
+        <p>{{ event.description|safe|linebreaks|urlize| }}</p>
 
         <p><strong>Category:</strong> <a href="{% url 'category_events' event.category.slug %}">{{ event.category.name }}</a></p>
 

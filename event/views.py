@@ -123,6 +123,7 @@ def contact_view(request):
             return redirect("thank_you")  # Redirect to a success page
     else:
         form = ContactForm()
+    return render(request, "form.html", {"form": form})
     
 def thank_you(request):
     return render(request, 'tq.html')
