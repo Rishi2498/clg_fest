@@ -13,10 +13,11 @@
         <h1>Register Here</h1>
         <!-- Contact form goes here -->
         <form method="POST" action="{% url 'contact' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-</form>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+        
 
 <!-- Display messages (success/error) -->
 

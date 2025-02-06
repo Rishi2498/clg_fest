@@ -44,7 +44,7 @@ def event_detail(request, event_slug):
     else:
         contact_form = ContactForm()
     return render(request, 'event_detail.html', {'event': event_instance, 'contact_form': contact_form})
-
+    
 def contact_view(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
