@@ -1,0 +1,36 @@
+<!-- home.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Event Website</h1>
+        <h2>Latest Events</h2>
+        
+       
+
+       <h2>Categories</h2>
+<div class="category-list">
+    {% for category in categories %}
+        <div class="category-item">
+            <!-- Link to the category events page -->
+            <a href="{% url 'category_events' category.slug %}">
+                {% if category.image %}
+                    <img src="{{ category.image.url }}" alt="{{ category.name }}" class="category-image">
+                {% endif %}
+                <p>{{ category.name }}</p>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+    </div>
+</body>
+</html>

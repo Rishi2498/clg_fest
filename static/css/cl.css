@@ -1,0 +1,65 @@
+/* Container for the event list */
+.container {
+    margin-top: 30px;
+}
+
+/* Styling for the event list (cards grid) */
+.event-list .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Each individual event card */
+.event-card {
+    width: 100%;  /* Full width in mobile view */
+    max-width: 350px; /* Max width of the card */
+    margin-bottom: 20px; /* Space between cards */
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* To make sure images stay inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Event Image Styling */
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Ensures the image covers the entire space without stretching */
+    border-radius: 8px;
+}
+
+/* Title of event */
+.event-card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.event-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Responsive Layout: For larger screens, show 3 cards per row */
+@media (min-width: 768px) {
+    .event-card {
+        width: 32%;  /* 3 cards in a row */
+    }
+}
+
+/* Responsive Layout: For small screens, stack the cards vertically */
+@media (max-width: 767px) {
+    .event-card {
+        width: 100%;  /* 1 card per row */
+    }
+}

@@ -1,0 +1,27 @@
+{% load static %}
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+     <link rel="stylesheet" href="{% static 'css/form.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Register Here</h1>
+        <!-- Contact form goes here -->
+        <form method="POST" action="{% url 'contact' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+</form>
+
+<!-- Display messages (success/error) -->
+
+<!-- Home Button -->
+        <a href="{% url 'home' %}" class="home-btn">Go to Home Page</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!-- event_detail.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ event.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/cd.css' %}">
+   
+</head>
+<body>
+    <div class="container">
+        <h1>{{ event.title }}</h1>
+        <p><strong>Location:</strong> {{ event.location }}</p>
+        <p><strong>Start Time:</strong> {{ event.start_time }}</p>
+        <p><strong>End Time:</strong> {{ event.end_time }}</p>
+
+        {% if event.image %}
+            <img src="{{ event.image.url }}" alt="{{ event.title }}">
+        {% endif %}
+
+        <h3>Description:</h3>
+        <p>{{ event.description }}</p>
+
+        <p><strong>Category:</strong> <a href="{% url 'category_events' event.category.slug %}">{{ event.category.name }}</a></p>
+
+       <div class="contact-button">
+    <a href="{% url 'contact' %}" class="btn-contact">Register here</a>
+</div>
+    </div>
+    
+</body>
+</html>
