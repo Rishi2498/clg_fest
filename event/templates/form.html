@@ -1,27 +1,161 @@
 {% load static %}
-<!-- contact.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-     <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>/* General Reset and Layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container for the form */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #333;
+    font-weight: 600;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #777;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    font-size: 1em;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+    margin: 10px 0;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #ff7e5f;
+    outline: none;
+}
+
+/* Button Styles */
+.submit-btn {
+    padding: 15px;
+    background-color: #ff7e5f;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #feb47b;
+}
+
+.submit-btn:active {
+    background-color: #ff6347;
+}
+
+/* Home Button */
+.home-btn {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background: linear-gradient(45deg, #00FFFF, #0066CC);
+    color: white;
+    font-size: 1.2em;
+    border-radius: 6px;
+    text-decoration: none;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+    background-color: #218838;
+}
+
+/* Success/Failure message box */
+.message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e7f5e7;
+    border-radius: 6px;
+    border: 1px solid #28a745;
+    color: #28a745;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    .submit-btn {
+        font-size: 1.1em;
+    }
+}
+</style>
 </head>
 <body>
     <div class="container">
-        <h1>Register Here</h1>
-        <!-- Contact form goes here -->
-        <form method="POST" action="{% url 'contact' %}">
+        <header>
+            <h1>Register Here</h1>
+            <p>Join us for the Techtrick 2k25 event and stay updated with the latest tech trends!</p>
+        </header>
+
+        <form method="POST" action="{% url 'contact' %}" class="contact-form">
             {% csrf_token %}
+            
+            <!-- Display form fields dynamically -->
             {{ form.as_p }}
-            <button type="submit">Register</button>
+
+            <button type="submit" class="submit-btn">Register</button>
         </form>
+
+        <!-- Success or error message -->
         
-
-<!-- Display messages (success/error) -->
-
-<!-- Home Button -->
         <a href="{% url 'home' %}" class="home-btn">Go to Home Page</a>
     </div>
 </body>
