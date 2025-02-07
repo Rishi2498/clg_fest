@@ -104,16 +104,19 @@ def contact_view(request):
             subject = "Thank You for Registering"
             message = f"""
             Dear {contact.name},
+            Greetings from Samskruti College of Engineering and Technology .   
 
-            Thank you for registering!
+            Thank you for registering TECTRIX-2K25!
 
             You have successfully registered for the following events:
             {events_selected}
 
             We look forward to seeing you.
+            This acknowledgement should be shown to registration committee on the day of the event for payment.
 
             Best Regards,
-            Event Team
+            Prof. J.Mohan
+            Convener- TECTRIX 2K25
             """
             from_email = "dattarishikesh2498@gmail.com"  # Update with your email
             recipient_list = [contact.email]
