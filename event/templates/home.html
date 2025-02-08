@@ -156,6 +156,9 @@ h2 {
             font-size: 0.9em; /* Slightly smaller font size for the paragraph */
         }
     }
+
+
+      
      .team-section {
             margin-top: 50px;
             text-align: center;
@@ -209,6 +212,32 @@ h2 {
                 align-items: center;
             }
         }
+
+    /* Contact Button */
+.contact-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-contact {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #0066CC;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-contact:hover {
+    background-color: #feb47b;
+}
+
+.btn-contact:active {
+    background-color: #ff6347;
+}
 </style>
 </head>
 <body>
@@ -233,10 +262,26 @@ h2 {
                         </a>
                     </div>
                 {% endfor %}
-            </div>
-        </section>
-        
+            </div>      
     </div>
+    <section class="team-section">
+        <div class="team-cards">
+
+            <div class="team-card" > 
+                <h3 >Last Date For Registration is 20th February 2025</h3>
+                <div class="contact-button">
+            <a href="{% url 'contact' %}" class="btn-contact">Register Now</a>
+        </div>
+            </div>
+    </section>
+    <section class="team-section">
+        <div class="team-cards"style=" font-size: 1.4em; font-weight: bold ;font-size: 1.4em; font-weight: bold  ">
+            <div class="team-card" style="background: linear-gradient(45deg, #00FFFF, #0066CC)"> 
+
+             <p style="color: white !important  ;">Don't miss out on our special event, happening on February 24th & 25th, 2025</span></p>
+            </div>      
+        </div>
+    </section>
 
      <section class="team-section">
             <h2 class="team-title">Meet the Team</h2>
@@ -244,19 +289,29 @@ h2 {
                 <!-- Convenor Card -->
                 <div class="team-card" style="border-left: 5px solid  #0066CC;">
                     <h3>Principal</h3>
-                    <p>K. SHIVA KESAVA REDDY</p>
+                    <p>Prof.K. SHIVA KESAVA REDDY</p>
                 </div>
                 <div class="team-card" style="border-left: 5px solid #0066CC;">
-                    <h3>Convenor && VICE-Principal</h3>
-                    <p>J.MOHAN</p>
+                    <h3>Convenor & VICE-Principal</h3>
+                    <p>Prof. J. Mohan </p>
+                    <p> 99635 15139<p> 
                 </div>
 
                 <!-- Co-Conveners Cards -->
                 <div class="team-card" style="border-left: 5px solid  #0066CC;">
-                    <h3>Co-Conveners</h3>
-                    <p>ARCHANA(EEE)</p>
-                    <p>PRUDHVIRAJ(MECH)</p>
-                    <p> PADMINI(AI&ML)</p>
+                    <h3>Co-Convener</h3>
+                    <p>Mrs. S. Padmini (HOD-A1&ML)</p>
+                    <p>90006 16833 </p>
+                </div>
+                <div class="team-card" style="border-left: 5px solid  #0066CC;">
+                    <h3>Co-Convener</h3>
+                    <p>Mrs. Ch. Archana (HOD-EEE)</p>
+                    <p> 99636 86011 </p>
+                </div>
+                <div class="team-card" style="border-left: 5px solid  #0066CC;">
+                    <h3>Co-Convener</h3>
+                    <p>Mr. P. Prudhviraj (HOD-MECH)</p>
+                    <p> 99487 70297 </p>
                 </div>
             </div>
         </section>
