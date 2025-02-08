@@ -118,7 +118,7 @@ def contact_view(request):
             Prof. J.Mohan
             Convener- TECTRIX 2K25
             """
-            from_email = "dattarishikesh2498@gmail.com"  # Update with your email
+            from_email = "techtrix2k25@gmail.com"   # Update with your email
             recipient_list = [contact.email]
             send_mail(subject, message, from_email, recipient_list)
             
