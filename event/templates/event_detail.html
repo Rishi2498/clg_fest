@@ -116,6 +116,23 @@ header h1 {
 .btn-contact:active {
     background-color: #ff6347;
 }
+.home-btn {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background: linear-gradient(45deg, #00FFFF, #0066CC);
+    color: white;
+    font-size: 1.2em;
+    border-radius: 6px;
+    text-decoration: none;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+    background-color: #218838;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -164,10 +181,7 @@ header h1 {
                 <a href="{% url 'category_events' event.category.slug %}" class="category-link">{{ event.category.name }}</a>
             </p>
         </section>
-
-        <div class="contact-button">
-            <a href="{% url 'contact' %}" class="btn-contact">Register here</a>
-        </div>
     </div>
+    <a href="{% url 'home' %}" class="home-btn">Go to Home Page</a>
 </body>
 </html>
