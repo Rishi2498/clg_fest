@@ -91,42 +91,60 @@ def contact_view(request):
 
     return render(request, "form.html", {"form": form})
 '''
+
 def contact_view(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
             contact = form.save()  # Save form data to the database
-            
+            name = contact.name
+            email = contact.email
+            phone = contact.phone
+            clg_name = contact.clg_name
+            branch = contact.branch
+            pin = contact.pin
+            year = contact.year
             # Get the selected events
             events_selected = ", ".join([event.title for event in contact.events.all()])
             
             # Send a thank-you email
             subject = "Thank You for Registering"
             message = f"""
-            Dear {contact.name},
-            Greetings from Samskruti College of Engineering and Technology .   
+            Dear {name},
+            Greetings from Samskruti College of Engineering and Technology.   
 
-            Thank you for registering TECTRIX-2K25!
+            Thank you for registering for TECTRIX-2K25!
 
-            You have successfully registered for the following events:
+            You have successfully registered with the following details:
+
+            Name: {name}
+            Email: {email}
+            Phone: {phone}
+            College Name: {clg_name}
+            Branch: {branch}
+            Pin: {pin}
+            Year: {year}
+
+            You have also registered for the following events:
             {events_selected}
 
             We look forward to seeing you.
-            This acknowledgement should be shown to registration committee on the day of the event for payment.
+            Please show this acknowledgement to the registration committee on the day of the event for payment.
 
             Best Regards,
             Prof. J.Mohan
-            Convener- TECTRIX 2K25
+            Convener- TECTRIX 2K25
             """
-            from_email = "techtrix2k25@gmail.com"   # Update with your email
-            recipient_list = [contact.email , "techtrix2k25@gmail.com" ]
+            from_email = "techtrix2k25@gmail.com" #"dattarishikesh2498@gmail.com"  # Update with your email
+            recipient_list = [contact.email]
             send_mail(subject, message, from_email, recipient_list)
             
             messages.success(request, "Thank you for registering! A confirmation email has been sent.")
             return redirect("thank_you")  # Redirect to a success page
     else:
         form = ContactForm()
-    return render(request, "form.html", {"form": form})
     
+    return render(request, "form.html", {"form": form})
+
 def thank_you(request):
     return render(request, 'tq.html')
