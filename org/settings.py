@@ -76,12 +76,24 @@ WSGI_APPLICATION = 'org.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': BASE_DIR / 'db.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fest',  # The database name
+        'USER': 'fest_user',  # The database user
+        'PASSWORD': '2awzKl07foYRdMzmctPVIHXtHfztEhtl',  # The database password (just the password, not the full URL)
+        'HOST': 'dpg-cukqd2btq21c73eadpjg-a.oregon-postgres.render.com',  # The full database host URL
+        'PORT': '5432',  # Default PostgreSQL port
     }
 }
 
