@@ -44,53 +44,7 @@ def event_detail(request, event_slug):
     else:
         contact_form = ContactForm()
     return render(request, 'event_detail.html', {'event': event_instance, 'contact_form': contact_form})
-'''    
-def contact_view(request):
-    if request.method == "POST":
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            contact = form.save()  # Save form data to database
 
-            # Get selected events using 'title' instead of 'name'
-            selected_events = ", ".join(contact.events.values_list('title', flat=True))
-
-            # Construct the email message
-            subject = "Thank you for registering!"
-            message = f"""
-            Dear {contact.name},
-
-            Thank you for registering for the Tech-Trix 2k25.
-
-            Your details:
-            Name: {contact.name}
-            Email: {contact.email}
-            Phone: {contact.phone}
-            College: {contact.clg_name}
-            Branch: {contact.branch}
-            Year: {contact.get_year_display()}
-
-            Selected Events: {selected_events}
-
-            Best regards,
-            Event Team
-            """
-
-            # Send email
-            email = EmailMessage(subject, message, to=[contact.email])
-            try:
-                email.send()
-                messages.success(request, "Registration successful! A confirmation email has been sent.")
-            except:
-                messages.warning(request, "Registration saved, but email could not be sent.")
-
-            return redirect('thank_you')  # Redirect to a success page (define in urls.py)
-        else:
-            messages.error(request, "Error in form submission. Please correct the fields below.")
-    else:
-        form = ContactForm()
-
-    return render(request, "form.html", {"form": form})
-'''
 
 def contact_view(request):
     if request.method == "POST":
