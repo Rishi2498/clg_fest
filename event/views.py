@@ -108,13 +108,14 @@ def contact_view(request):
             events_selected = ", ".join([event.title for event in contact.events.all()])
             
             # Send a thank-you email
-            subject = "Thank You for Registering"
+            subject = "Acknowledgement of Registration for Techtrix2K25 at Samskruti College of Engineering and Technology"
             message = f"""
             Dear {name},
-            Greetings from Samskruti College of Engineering and Technology.   
-
-            Thank you for registering for TECTRIX-2K25!
-
+            We are delighted to acknowledge your successful registration for TECHTRIX2K25, the annual technical fest organized by Samskruti College of Engineering and Technology.
+            Thank you for showing interest and being a part of this exciting event!   
+            
+            Event Dates: 24TH & 25TH FEB 2025
+            
             You have successfully registered with the following details:
 
             Name: {name}
@@ -125,15 +126,20 @@ def contact_view(request):
             Roll no.: {pin}
             Year: {year}
 
-            You have also registered for the following events:
+            Events you have successfully registered:
             {events_selected}
 
-            We look forward to seeing you.
             Please show this acknowledgement to the registration committee on the day of the event for payment.
-
+            
+            Venue: Samskruti College of Engineering and Technology, Ghatkesar
+            
+            If you have any questions or require further assistance, feel free to reach out to us at (9000616833, 9948770297)
+            Once again, thank you for registering, and we look forward to seeing you at Techtrix2K25)
+            
             Best Regards,
-            Prof. J.Mohan
+            Prof.J.Mohan
             Convener- TECTRIX 2K25
+            Samskruti College of Engineering and Technology
             """
             from_email = "techtrix2k25@gmail.com" #"dattarishikesh2498@gmail.com"  # Update with your email
             recipient_list = [contact.email , "techtrix2k25@gmail.com"]
