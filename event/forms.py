@@ -13,8 +13,8 @@ class ContactForm(forms.ModelForm):
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone Number'}),
             'clg_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'College Name'}),
             'branch': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Branch'}),
-            'pin': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'PIN Code'}),
-            'year': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Year'}),
+            'pin': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Roll no.'}),
+            'year': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Year(1,2,3)'}),
             'events': forms.CheckboxSelectMultiple(attrs={'class': 'form-control'}),
         }
        
