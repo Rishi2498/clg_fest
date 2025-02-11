@@ -122,7 +122,7 @@ def contact_view(request):
             Phone: {phone}
             College Name: {clg_name}
             Branch: {branch}
-            Pin: {pin}
+            Roll no.: {pin}
             Year: {year}
 
             You have also registered for the following events:
@@ -136,7 +136,7 @@ def contact_view(request):
             Convener- TECTRIX 2K25
             """
             from_email = "techtrix2k25@gmail.com" #"dattarishikesh2498@gmail.com"  # Update with your email
-            recipient_list = [contact.email]
+            recipient_list = [contact.email , techtrix2k25@gmail.com]
             send_mail(subject, message, from_email, recipient_list)
             
             messages.success(request, "Thank you for registering! A confirmation email has been sent.")
